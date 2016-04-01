@@ -8,21 +8,20 @@
 ## values do not exceed four million, find the sum of the
 ## even-valued terms.
 
-def FindEvenFibSum( upperlimit ):
+
+def FindEvenFibSum(upperlimit):
     """input int upperlimit, output int ans"""
     x1 = 1
     x2 = 2
     x3 = x1 + x2
     ans = 2
     while x3 < upperlimit:
-        if x3%2 == 0:
+        if x3 % 2 == 0:
             ans += x3
         x1 = x2
         x2 = x3
         x3 = x1 + x2
     return ans
 
+
 print FindEvenFibSum(4000000)
-
-
-
