@@ -9,6 +9,7 @@
 ## even-valued terms.
 
 def FindEvenFibSum( upperlimit ):
+    """input int upperlimit, output int ans"""
     x1 = 1
     x2 = 2
     x3 = x1 + x2

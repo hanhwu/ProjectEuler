@@ -5,6 +5,7 @@
 ## Find the sum of all the multiples of 3 or 5 below 1000.
 
 def Find_Sum_of_Multiples(m1,m2,upperlimit):
+    """input int m1,m2,upperlimit, ouput in ans"""
     ans = 0
     for _ in range(1,upperlimit):
         if _%m1 == 0 or _%m2 == 0:
