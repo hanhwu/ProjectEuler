@@ -2,11 +2,12 @@
 ##
 ## What is the largest prime factor of the number 600851475143 ?
 
+
 def FindLargestPrimeFactor(x):
     ans = 1
     i = 2
     while i <= x:
-        if x%i == 0:
+        if x % i == 0:
             x = x / i
             ans = i
             ## progress checkprint: print 'x=',x,' ans=',ans
@@ -14,15 +15,5 @@ def FindLargestPrimeFactor(x):
         i += 1
     return ans
 
+
 print FindLargestPrimeFactor(600851475143)
-
-                
-            
-
-
-
-
-
-
-
-    
