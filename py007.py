@@ -7,10 +7,18 @@ def find_nth_prime(n):
     """input: n-th prime to find (int)
     output: n-th prime (int)"""
     primes = [2]
-
-    while len(primes) < n
+    guess = 3
+    while len(primes) < n:
         # keep adding primes to the end of the primes list
         # until desired n is reached
+        isprime = True
+        for i in primes:
+            if guess%i == 0:
+                isprime = False
+                break
+        if isprime:
+            primes.append(guess)
+        guess += 1
 
     return primes[-1]
 
