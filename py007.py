@@ -5,6 +5,7 @@
 
 import time
 
+
 def find_nth_prime(n):
     """input: n-th prime to find (int)
     output: n-th prime (int)"""
@@ -15,7 +16,7 @@ def find_nth_prime(n):
         # until desired n is reached
         isprime = True
         for i in primes:
-            if guess%i == 0:
+            if guess % i == 0:
                 isprime = False
                 break
         if isprime:
@@ -24,8 +25,10 @@ def find_nth_prime(n):
 
     return primes[-1]
 
+
 start = time.time()
 x = 10001
-print 'Found prime number',x,'(',find_nth_prime(10001),') in',time.time()-start,'seconds.'
+print 'Found prime number', x, '(', find_nth_prime(10001), ') in', time.time(
+) - start, 'seconds.'
 
 # found 104743
