@@ -3,6 +3,8 @@
 # 
 # What is the 10001st prime number?
 
+import time
+
 def find_nth_prime(n):
     """input: n-th prime to find (int)
     output: n-th prime (int)"""
@@ -22,6 +24,8 @@ def find_nth_prime(n):
 
     return primes[-1]
 
+start = time.time()
+x = 10001
+print 'Found prime number',x,'(',find_nth_prime(10001),') in',time.time()-start,'seconds.'
 
-print find_nth_prime(6)
-#print find_nth_prime(10001)
+# found 104743
