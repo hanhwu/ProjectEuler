@@ -28,18 +28,32 @@
 
 import time
 
-# function gap (greatest adjacent product) to take list of lists and int
+# gap (greatest adjacent product) to take list of lists and int
 # returns greatest product of n adjacent numbers
 def gap(L,n):
     
     return ans
 
-# function g_gen (grid generation) to make list of lists from text file containing x numbers in y rows
+
+# g_gen (grid generation) to make list of lists from text file containing x numbers in y rows
 # returns list of lists
 # grid shall be anchored at top left
-# [0][0]
+#   [0][0]  [0][1]  [0][2]
+#   [1][0]  [1][1]  [1][2]
 def g_gen(f):
-    
+    rowstr = f.readline()
+    numstr = ''
+    rowint = []
+    L = []
+    while rowstr != '':
+        for i in rowstr:
+            if i != ' ' and i != '\n':
+                numstr.append(i)
+            else:
+                rowint.append(int(numstr))
+                numstr = ''
+        L.append(rowint)
+        rowstr = f.readline()
     return L
 
 
