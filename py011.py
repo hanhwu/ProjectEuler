@@ -31,7 +31,30 @@ import time
 # gap (greatest adjacent product) to take list of lists and int
 # returns greatest product of n adjacent numbers
 def gap(L,n):
+    ans = 1
+    # Right n spaces
+    for row in range(len(L)):
+        for col in range(len(L[0]) - n + 1):
+            testans = 1
+            for i in range(n):
+                testans = testans * L[row][col+i]
+            if testans > ans:
+                ans = testans
     
+    # Down n spaces
+    for row in range(len(L) - n + 1):
+        for col in range(len(L[0])):
+            testans = 1
+            for i in range(n):
+                testans = testans * L[row+i][col]
+            if testans > ans:
+                ans = testans
+    
+    # Down and right
+    
+    
+    # Up and right
+        
     return ans
 
 
