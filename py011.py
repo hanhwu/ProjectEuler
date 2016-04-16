@@ -51,9 +51,22 @@ def gap(L,n):
                 ans = testans
     
     # Down and right
-    
-    
+    for row in range(len(L) - n + 1):
+        for col in range(len(L[0]) - n + 1):
+            testans = 1
+            for i in range(n):
+                testans = testans * L[row+i][col+i]
+            if testans > ans:
+                ans = testans
+
     # Up and right
+    for row in range(n - 1, len(L)):
+        for col in range(len(L[0]) - n + 1):
+            testans = 1
+            for i in range(n):
+                testans = testans * L[row-i][col+i]
+            if testans > ans:
+                ans = testans
         
     return ans
 
@@ -71,12 +84,13 @@ def g_gen(f):
     while rowstr != '':
         for i in rowstr:
             if i != ' ' and i != '\n':
-                numstr.append(i)
+                numstr = numstr + i
             else:
                 rowint.append(int(numstr))
                 numstr = ''
         L.append(rowint)
         rowstr = f.readline()
+        rowint = []
     return L
 
 
@@ -86,6 +100,6 @@ n = 4
 start = time.time()
 ans = gap(L, n)
 dur = time.time() - start
-print 'Answer', ans, 'found in', dur, 'seconds.
-
+print 'Answer', ans, 'found in', dur, 'seconds.'
+f.close()
 
