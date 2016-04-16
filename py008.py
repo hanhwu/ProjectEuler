@@ -39,7 +39,6 @@ def largest_product(L, n):
             tempans = tempans * L[i+j]
         if tempans > ans:
             ans = tempans
-        print tempans
     return ans
 
 def make_list_from_file(f):
