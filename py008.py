@@ -28,15 +28,18 @@
 ## Find the thirteen adjacent digits in the 1000-digit number
 ## that have the greatest product. What is the value of this product?
 
+import time
+
 def largest_product(L, n):
     """Returns greatest product in series L, over n adjacent digits"""
     ans = 1
     for i in range(len(L)-n):
         tempans = 1
         for j in range(n):
-            tempans = tempans * j
+            tempans = tempans * L[i+j]
         if tempans > ans:
             ans = tempans
+        print tempans
     return ans
 
 def make_list_from_file(f):
@@ -50,7 +53,10 @@ def make_list_from_file(f):
         line = f.readline()
     return onelist
 
+start = time.time()
 f = open('008ref.txt','r')
 digit_list = make_list_from_file(f)
 ans = largest_product(digit_list,13)
-
+dur = time.time() - start
+f.close()
+print 'Ans', ans, 'found in', dur,'seconds.'
