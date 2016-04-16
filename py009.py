@@ -27,4 +27,4 @@ start = time.time()
 n = 1000
 ans = find_triplet(n)
 solve_time = time.time() - start
-print 'Answer',ans,'found in',solve_time,'seconds'
+print 'Answer', ans, 'found in', int(solve_time)+1, 'seconds'
