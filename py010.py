@@ -4,7 +4,7 @@
 import math
 import time
 
-def find_prime(n):
+def find_primes(n):
     """input: n as search limit
     output: list of primes"""
     primes = [2]
@@ -23,7 +23,7 @@ def find_prime(n):
             primes.append(guess)
         guess += 1
 
-    return primes[0:-2]  # because last one exceeds n
+    return primes[0:-1]  # because last one exceeds n
 
 n = 2000000
 start = time.time()
