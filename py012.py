@@ -26,3 +26,29 @@
 #    Repeat until divisors exceed m, now we know the answer is in T somewhere.
 #    Apply bisection search
 
+import math
+import time
+
+def divisors(n):
+    divs = 0
+    if math.sqrt(n) % 1 == 0:
+        divs += 1
+    for i in range(1, math.sqrt(n) // 1):
+        if n % i == 0:
+            divs += 2
+    return divs
+    
+def double_max_tri(L):
+    tar = max(L) * 2
+    while max(L) < tar:
+        L.append(max(L) + len(L))
+    return L
+
+# main
+
+start = time.time()
+T = [0, 1, 3, 6, 10]
+m = 500
+while divisors(max(T)) < m:
+    double_max_tri(T)
+# begin bisection search, to be continued......
