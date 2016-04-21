@@ -45,10 +45,29 @@ def double_max_tri(L):
     return L
 
 # main
-
 start = time.time()
 T = [0, 1, 3, 6, 10]
-m = 500
+m = 500     # m = number of divisors we're looking for
+searchrange = [0, len(T) - 1]
+# lengthen T until answer is included
 while divisors(max(T)) < m:
+    searchrange[0] = len(T) - 1
     double_max_tri(T)
-# begin bisection search, to be continued......
+    searchrange[1] = len(T) - 1
+#   begin bisection search
+#       ngi = next guess index (of T)
+ngi = sum(searchrange)//2
+while (searchrange[1] - searchrange[0]) > 1:
+    if divisors(T[ngi]) >= m:
+        searchrange[1] = ngi
+    elif divisors(T[ngi]) < m:
+        searchrange[0] = ngi
+    if divisors(T[ngi]) == m:
+        ngi -= 1
+    else:
+        ngi = sum(searchrange)//2
+    print 'debug: ngi =',ngi,'divisors(T[ngi])=',divisors(T[ngi]),'searchrange=',searchrange
+
+ans = T[searchrange[1]]
+dur = time.time() - start
+print 'ans', ans, 'found in', dur, 'seconds.'
