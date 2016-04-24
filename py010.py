@@ -4,6 +4,7 @@
 import math
 import time
 
+
 def find_primes(n):
     """input: n as search limit
     output: list of primes"""
@@ -25,9 +26,10 @@ def find_primes(n):
 
     return primes[0:-1]  # because last one exceeds n
 
+
 n = 2000000
 start = time.time()
 plist = find_primes(n)
 solve_time = time.time() - start
 ans = sum(plist)
-print 'Answer',ans,'found in',solve_time,'seconds.'
+print 'Answer', ans, 'found in', solve_time, 'seconds.'

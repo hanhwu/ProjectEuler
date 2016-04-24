@@ -30,32 +30,35 @@
 
 import time
 
+
 def largest_product(L, n):
     """Returns greatest product in series L, over n adjacent digits"""
     ans = 1
-    for i in range(len(L)-n):
+    for i in range(len(L) - n):
         tempans = 1
         for j in range(n):
-            tempans = tempans * L[i+j]
+            tempans = tempans * L[i + j]
         if tempans > ans:
             ans = tempans
     return ans
+
 
 def make_list_from_file(f):
     """Goes through file f and adds each CHAR as INT to list, returns list"""
     onelist = list()
     line = f.readline()
-    while(line != ''):
+    while (line != ''):
         for i in line:
             if i != '\n':
                 onelist.append(int(i))
         line = f.readline()
     return onelist
 
+
 start = time.time()
-f = open('008ref.txt','r')
+f = open('008ref.txt', 'r')
 digit_list = make_list_from_file(f)
-ans = largest_product(digit_list,13)
+ans = largest_product(digit_list, 13)
 dur = time.time() - start
 f.close()
-print 'Ans', ans, 'found in', dur,'seconds.'
+print 'Ans', ans, 'found in', dur, 'seconds.'
