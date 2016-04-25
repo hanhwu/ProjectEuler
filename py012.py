@@ -30,33 +30,38 @@ import math
 import time
 
 def divisors(n):
+    print 'debug: divisors called for', n
     divs = 0
     if math.sqrt(n) % 1 == 0:
         divs += 1
         
-    for i in range(1, math.sqrt(n) // 1):
+    for i in range(1, int(math.sqrt(n) // 1)):
         if n % i == 0:
             divs += 2
-            
+            print i, n/i
     return divs
     
 def double_max_tri(L):
+    ## super inefficient, rework
+    print 'debug: working on doubling max(T)'
     tar = max(L) * 2
-    while max(L) < tar:
-        L.append(max(L) + len(L))
-        
+    NL = [max(L) + len(L)]
+    while max(NL) < tar:
+        NL.append(max(NL) + len(L) + len(NL))
+    L = L + tuple(NL)
     return L
 
 # main
 start = time.time()
-T = [0, 1, 3, 6, 10]
+T = (0, 1, 3, 6, 10)
 m = 501     # m = number of divisors we're looking for
 searchrange = [0, len(T) - 1]
 # lengthen T until answer is included
 while divisors(max(T)) < m:
     searchrange[0] = len(T) - 1
-    double_max_tri(T)
+    T = double_max_tri(T)
     searchrange[1] = len(T) - 1
+    print 'debug: max tri=', max(T),'max tri div=', divisors(max(T))
     
 #   begin bisection search
 #       ngi = next guess index (of T)
