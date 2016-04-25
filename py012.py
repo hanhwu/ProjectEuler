@@ -15,16 +15,6 @@
 
 # Functions:
 # F1. Divisors - Input: n <int>; Output: divs <int> number of divisors of n
-# F2. DoubleMaxT - Input: T <list> of triangle numbers; Output: New T <list> of triangle
-#     numbers where max(T) is at least doubled.
-#
-# Main:
-# 1. Generate and store triangle list, start from 0 (i.e. 0, 1, 3, 6, 10)
-#    Such that T[n] = T[n-1] + n, and T[0] = 0
-# 2. Check if the largest one has m divisors
-# 3. If not enough, append T until new max(T) is at least double old max(T).  See F2.
-#    Repeat until divisors exceed m, now we know the answer is in T somewhere.
-#    Apply bisection search
 
 import math
 import time
@@ -41,43 +31,16 @@ def divisors(n):
             print i, n/i
     return divs
     
-def double_max_tri(L):
-    ## super inefficient, rework
-    print 'debug: working on doubling max(T)'
-    tar = max(L) * 2
-    NL = [max(L) + len(L)]
-    while max(NL) < tar:
-        NL.append(max(NL) + len(L) + len(NL))
-    L = L + tuple(NL)
-    return L
-
 # main
 start = time.time()
-T = (0, 1, 3, 6, 10)
+trinum = 1
+n = 2
 m = 501     # m = number of divisors we're looking for
-searchrange = [0, len(T) - 1]
-# lengthen T until answer is included
-while divisors(max(T)) < m:
-    searchrange[0] = len(T) - 1
-    T = double_max_tri(T)
-    searchrange[1] = len(T) - 1
-    print 'debug: max tri=', max(T),'max tri div=', divisors(max(T))
-    
-#   begin bisection search
-#       ngi = next guess index (of T)
-ngi = sum(searchrange) // 2
-while (searchrange[1] - searchrange[0]) > 1:
-    if divisors(T[ngi]) >= m:
-        searchrange[1] = ngi
-    elif divisors(T[ngi]) < m:
-        searchrange[0] = ngi
-        
-    if divisors(T[ngi]) == m:
-        ngi -= 1
-    else:
-        ngi = sum(searchrange) // 2
-    print 'debug: ngi =', ngi, 'divisors(T[ngi])=', divisors(T[ngi]), 'searchrange=', searchrange
 
-ans = T[searchrange[1]]
+while divisors(trinum) < m:
+    trinum += n
+    n += 1
+
+ans = trinum
 dur = time.time() - start
 print 'ans', ans, 'found in', dur, 'seconds.'
