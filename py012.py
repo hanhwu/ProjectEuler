@@ -20,7 +20,6 @@ import math
 import time
 
 def divisors(n):
-    print 'debug: divisors called for', n
     divs = 0
     if math.sqrt(n) % 1 == 0:
         divs += 1
@@ -29,6 +28,8 @@ def divisors(n):
         if n % i == 0:
             divs += 2
             print i, n/i
+            
+    print 'debug: divisors called for', n, ', returned', divs, 'divisors.'
     return divs
     
 # main
