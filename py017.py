@@ -50,12 +50,34 @@ def lettercount(n):
 		break
 		
 	else:
+		# parse 1000
 		if int(n // 1000) == 1:
-			letters = dict
-		# this is where I'm at...
+			letters = letters + letterdict[1] + letterdict[1000]
+		
+		else:
+			# parse hundreds + optional 'and'
+			if int(n % 1000) >= 100:
+				letters = letters + letterdict[int(n // 100)] + letterdict[100]
+				if n % 100 > 0:
+					letters = letters + letterdict['&']
+			
+			# parse tens and ones
+			n = n % 100
+			if n <= 20:
+				letters += letterdict[n]
+			else:
+				letters += letterdict[int(n // 10) * 10]
+				n = n % 10
+				if n > 0:
+					letters += letterdict[n]
+	
+	return letters
+			
 
 def solve17():
+	start = time.time()
 	ans = 0
+	letterdict = makedict()	
 	for i in range(1, 1000 + 1):
 		ans += lettercount(i)
 	
@@ -63,6 +85,4 @@ def solve17():
 	print 'Answer', ans, 'found in', dur, 'seconds.'
 
 
-start = time.time()
-letterdict = makedict()	
 solve17()
