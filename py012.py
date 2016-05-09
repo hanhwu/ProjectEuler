@@ -27,9 +27,10 @@ def divisors(n):
     for i in range(1, int(math.sqrt(n) // 1)):
         if n % i == 0:
             divs += 2
-            print i, n/i
+            # print i, n/i
             
-    print 'debug: divisors called for', n, ', returned', divs, 'divisors.'
+    # if divs>300:
+    #    print 'debug: divisors called for', n, ', returned', divs, 'divisors.'
     return divs
     
 # main
