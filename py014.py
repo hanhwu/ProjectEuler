@@ -45,7 +45,7 @@ def solve14():
 			ans = [i, n]
 			print 'debug: ans = [i, n] =', ans
 	dur = time.time() - start
-	print 'Answer =',ans[0]
+	print 'Answer =', ans[0], 'found in', dur, 'seconds.'
 
 
 solve14()
