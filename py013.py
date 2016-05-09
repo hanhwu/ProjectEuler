@@ -15,9 +15,9 @@ while line != '':
 			numstring += i
 			
 	largenumbersum += int(numstring)
-	line = f.raedline()
+	line = f.readline()
 	
-ans = str(largenumbersum)[range(10)]
+ans = str(largenumbersum)[0:10]
 dur = time.time() - start
 print 'Answer', ans, 'found in', dur, 'seconds.'
 
