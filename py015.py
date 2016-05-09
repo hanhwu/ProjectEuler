@@ -14,10 +14,20 @@
 
 import math
 
+# Issue: math.factorial doesn't exist before 2.6
+def factorial(x):
+	assert type(x) is int, "factorial input type not INT"
+	assert x >= 0, "factorial input less than zero"
+	if x == 0:
+		return 1
+	else:
+		return x * factorial(x - 1)
+
+
 def solve15():
 	n = 20
 	m = 20
-	ans = math.factorial(n + m) / (math.factorial(n) * math.factorial(m))
+	ans = factorial(n + m) / (factorial(n) * factorial(m))
 	print 'Program Answer =', ans, ', should be 137846528820 per hand-calc.'
 	# should be 137846528820, run and check
 
