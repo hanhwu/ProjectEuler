@@ -12,6 +12,8 @@
 #			(a)  We don't care what order the n's are, so divide by n!
 #			(b)  We don't care what order the m's are, so divide by m!
 
+import math
+
 def solve15():
 	n = 20
 	m = 20
