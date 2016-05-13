@@ -21,7 +21,6 @@ def solve019():
         
         testdate += inc
     
-    
     print "Answer", ans, "found."
 
 
