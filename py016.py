@@ -12,7 +12,7 @@ def solve16():
 	
 	dur = time.time() - start
 	print 'Answer', ans, 'found in', dur, 'seconds.'
-	
+	# 1366 confirmed
 
 solve16()
 	
