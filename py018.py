@@ -55,7 +55,8 @@ def solve018():
     dur = time.time() - start
     f.close()
     print 'Answer', ans, 'found in', dur, 'seconds.'
-    # 1074 program output, but website is down
+    # 1074 verified
+
 
 solve018()
     
