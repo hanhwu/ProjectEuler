@@ -8,4 +8,49 @@
 
 import time
 
+def listbycomma(strfile):
+    itemlist = []
+    listmember = ''
+    for c in namefile.read():
+        if c == '"' or c == '\n':
+            pass
+        elif c == ',':
+            itemlist.append(listmember)
+            listmember = ''
+        else:
+            listmember += c
+    
+    return itemlist
+    
+
+def makedict():
+    dtn = {}
+    for i in range(26):
+        dtn[chr(97 + i)] = i + 1
+        print 'debug: ', char(97 + i), 'is', i + 1
+    
+    return dtn
+
+
 def solve022():
+    start = time.time()
+    wf = open('022ref.txt','r')
+    fnames = listbycomma(wf)
+    fnames.sort()
+    ltrnumdict = makedict()
+    ans = 0
+    idx = 1
+    for str in fnames:
+        nameint = 0
+        for c in str:
+            nameint += ltrnumdict[c]
+        
+        nameint *= idx
+        ans += nameint
+        idx += 1
+    
+    dur = time.time() - start
+    print 'Answer', ans, 'found in', dur, 'seconds.'
+
+
+solve022()
