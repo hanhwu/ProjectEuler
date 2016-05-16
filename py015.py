@@ -28,8 +28,8 @@ def solve15():
 	n = 20
 	m = 20
 	ans = factorial(n + m) / (factorial(n) * factorial(m))
-	print 'Program Answer =', ans, ', should be 137846528820 per hand-calc.'
-	# should be 137846528820, run and check
+	print 'Program Answer =', ans
+
 
 solve15()
 	
