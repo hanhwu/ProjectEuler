@@ -38,14 +38,14 @@ def solve018():
     start = time.time()
     filename = '018ref.txt'
     f = openfile(filename)
-    numarray = txttointlist(f)
-    for row in range(1:len(numarray)):
+    numarray = texttointlist(f)
+    for row in range(1,len(numarray)):
         print 'debug: row =', row
-        for i in range(len(row)):
+        for i in range(len(numarray[row])):
             if i == 0:
                 numarray[row][i] += numarray[row-1][i]
             
-            elif i == (len(row) - 1):
+            elif i == (len(numarray[row]) - 1):
                 numarray[row][i] += numarray[row-1][i-1]
             
             else:
@@ -55,7 +55,7 @@ def solve018():
     dur = time.time() - start
     f.close()
     print 'Answer', ans, 'found in', dur, 'seconds.'
-    
+    # 1074 program output, but website is down
 
 solve018()
     
