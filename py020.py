@@ -13,7 +13,6 @@ def factorial(n):
 
 
 def sumdigits(n):
-    assert type(n) is int
     cn = 0
     for c in str(n):
         cn += int(c)
