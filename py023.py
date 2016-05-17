@@ -14,3 +14,25 @@
 #
 # Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
+import time
+
+def find_abundant_number(upper_limit):
+    abuns = []
+    for i in range(2, upper_limit):
+        propdivs = 0
+        for j in range(1, i):
+            if i % j == 0:
+                propdivs += j
+        
+        if propdivs > i
+        abuns.append(i)
+    
+    return abuns
+
+
+def solve023():
+    abun_nums = find_abundant_number(28124)
+    # continue here
+
+
+solve023()
