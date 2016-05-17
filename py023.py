@@ -31,8 +31,23 @@ def find_abundant_number(upper_limit):
 
 
 def solve023():
-    abun_nums = find_abundant_number(28124)
-    # continue here
+    start = time.time()
+    abun_nums = find_abundant_number(28123 + 1)
+    ans = 0
+    for answer_guess in range(3,28123 + 1):
+        failed_problem_criteria = False
+        for a in abun_nums:
+            for b in abun_nums:
+                if answer_guess == a + b:
+                    failed_problem_criteria = True
+                elif a + b > answer_guess:
+                    break
+        
+        if failed_problem_criteria == False:
+            ans += answer_guess
+    
+    dur = time.time() - start
+    print 'Answer', ans, 'found in', dur, 'seconds.'
 
 
 solve023()
