@@ -16,9 +16,9 @@ def solve019():
     inc = timedelta(days = 1)
     ans = 0
     while testdate <= enddate:
-        if testdate.day() == 1 and testdate.weekday() == 6:
+        if testdate.day == 1 and testdate.weekday() == 6:
             ans += 1
-            print 'debug: sunday found on testdate =', testdate
+            # print 'debug: sunday found on testdate =', testdate
         
         testdate += inc
     
