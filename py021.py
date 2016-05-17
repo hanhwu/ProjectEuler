@@ -34,7 +34,7 @@ def solve021():
             if a >= ubound:
                 print 'debug:', a, '> ubound, pairs', i, 'and', a, 'not recorded.'
             else:
-                print 'debug: amicable pair (', i, ',', a, ') added.'
+                # print 'debug: amicable pair (', i, ',', a, ') added.'
                 ans = ans + i + a
     
     ans = ans / 2       # since everything got counted twice
