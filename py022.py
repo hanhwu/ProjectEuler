@@ -11,10 +11,10 @@ import time
 def listbycomma(strfile):
     itemlist = []
     listmember = ''
-    for c in namefile.read():
-        if c == '"' or c == '\n':
+    for c in strfile.read():
+        if c == '"':
             pass
-        elif c == ',':
+        elif c == ',' or c == '\n':
             itemlist.append(listmember)
             listmember = ''
         else:
@@ -26,8 +26,8 @@ def listbycomma(strfile):
 def makedict():
     dtn = {}
     for i in range(26):
-        dtn[chr(97 + i)] = i + 1
-        print 'debug: ', char(97 + i), 'is', i + 1
+        dtn[chr(65 + i)] = i + 1
+        print 'debug: ', chr(65 + i), 'is', i + 1
     
     return dtn
 
@@ -39,16 +39,17 @@ def solve022():
     fnames.sort()
     ltrnumdict = makedict()
     ans = 0
-    idx = 1
-    for str in fnames:
+    idx = 0
+    for aname in fnames:
+        idx = idx + 1
         nameint = 0
-        for c in str:
-            nameint += ltrnumdict[c]
+        for c in aname:
+            nameint = nameint + ltrnumdict[c]
         
-        nameint *= idx
-        ans += nameint
-        idx += 1
-    
+        # print 'debug: aname, nameint, idx', aname, nameint, idx
+        nameint = nameint * idx
+        ans = ans + nameint
+
     dur = time.time() - start
     print 'Answer', ans, 'found in', dur, 'seconds.'
 
