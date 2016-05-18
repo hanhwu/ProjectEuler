@@ -9,9 +9,8 @@
 
 import time
 
-def permutation_gen(already_done, add_these):
-    for c in add_these:
-        # continue here
+def permutation_init(mix_these):
+    # continue here
     pass
 
 
@@ -22,7 +21,7 @@ def solve024():
     for i in permu_members_int:
         permu_members_str.append(str(i))
         
-    permu_results = permutation_gen('', permu_members_str)
+    permu_results = permutation_init(permu_members_str)
     pass
 
 
