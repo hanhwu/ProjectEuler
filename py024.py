@@ -10,19 +10,36 @@
 import time
 
 def permutation_init(mix_these):
-    # continue here
-    pass
+    return permutation_gen([], '', mix_these)
+    
 
+def permutation_gen(done_list, progress_string, remaining_members):
+    # print 'debug: done_list, progress_string, remaining_members input to perumutation_gen ='
+    # print done_list, progress_string, remaining_members
+    if len(remaining_members) == 0:
+        done_list.append(progress_string)
+        return done_list
+    else:
+        for c in remaining_members:
+            member_snapshot = remaining_members[:]
+            member_snapshot.remove(c)
+            progress_snapshot = progress_string + c
+            done_list = permutation_gen(done_list, progress_snapshot, member_snapshot)
+        return done_list
+        
 
 def solve024():
     start = time.time()
-    permu_members_int = range(10)
+    permu_members_int = range(10) # problem set: range(10)
     permu_members_str = []
     for i in permu_members_int:
         permu_members_str.append(str(i))
         
     permu_results = permutation_init(permu_members_str)
-    pass
+    permu_results.sort()
+    ans = permu_results[1000000-1]
+    dur = time.time() - start
+    print 'Answer', ans, 'found in', dur, 'seconds.'
 
 
 solve024()
